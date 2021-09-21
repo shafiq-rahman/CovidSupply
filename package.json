@@ -1,10 +1,11 @@
 {
-  "name": "CovidSupply",
+  "name": "covidsupply",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,7 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0",
-    "sanitize-html": "^2.5.1"
+    "sanitize-html": "^2.5.1",
+    "serve-favicon": "^2.5.0"
   }
 }

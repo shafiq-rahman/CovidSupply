@@ -20,7 +20,8 @@ const userRoutes = require("./routes/users")
 const supplyRoutes = require("./routes/supply")
 const reviewRoutes = require("./routes/reviews")
 const MongoStore = require('connect-mongo');
-const dbUrl = "mongodb://localhost:27017/covid-aid"
+const favicon = require("serve-favicon")
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/covid-aid"
 
 //Mongoose Connection
 mongoose.connect(dbUrl, {
@@ -48,6 +49,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride("_method"))
 app.use(mongoSanitize())
 app.use(helmet())
+app.use(favicon(path.join(__dirname, "images/js.ico")))
 
 const scriptSrcUrls = [
     "https://stackpath.bootstrapcdn.com/",
@@ -146,8 +148,10 @@ app.use(express.static(path.join(__dirname, "public")))
 
 
 //Setting up the server
-app.listen("8080", () => {
-    console.log("LISTENING TO PORT 8080")
+const port = process.env.PORT || 3000
+
+app.listen(port, () => {
+    console.log(`LISTENING TO PORT ${port}`)
 })
 
 //Route handlers
