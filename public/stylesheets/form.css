@@ -1,0 +1,13 @@
+.design {
+   height: 60vh;
+}
+.row {
+ border: 1px solid none;
+      border-radius: 1%;
+}
+
+@media (max-width: 575px) {
+      .design {
+            height: 15vh;
+      }
+}

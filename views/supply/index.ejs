@@ -1,0 +1,34 @@
+<% layout("layouts/boilerplate") %>
+
+    <div id="cluster-map"></div>
+    <h1 class="display-5 mt-3">All Supply Stores</h1>
+ 
+    <% for(let store of supplies) { %>
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-4">
+                    <% if(store.images.length > 0) { %> 
+                        <img src="<%= store.images[0].url %>" class="card-img">
+                    <% } else { %> 
+                        <img src="https://res.cloudinary.com/javfiq/image/upload/v1631606022/COVIDSupply/ocmfqhwbzihiroagg5v3.jpg" class="card-img">
+                    <% } %> 
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= store.title %></h5>
+                        <p class="card-text"><%= store.description %></p>
+                        <p class="card-text">
+                            <small class="text-muted"><%= store.location %></small>
+                        </p>
+                        <a href="/supply/<%= store._id %>"><button class="btn btn-secondary">View <%= store.title %></button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+
+    <script>
+        const mapToken = '<%= process.env.MAPBOX_TOKEN %>'
+        const supplies = { features: <%- JSON.stringify(supplies) %> }
+    </script>
+    <script src="/javascripts/clusterMap.js"></script>

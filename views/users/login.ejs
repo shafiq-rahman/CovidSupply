@@ -1,0 +1,30 @@
+<% layout("layouts/boilerplate") %>
+
+    <div class="container">
+        <div class="">
+            <div class="row shadow m-3 rounded-3">
+                <div class="design col-sm-6 col-md-7 col-lg-8 col-xl-9 bg-primary p-3 text-white pb-5">
+                    <h1 class="display-6">Hello! Welcome back.</h1>
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 p-3 bg-light">
+                    <h5 class="display-6">Login</h5>
+                    <form action="/login" method="POST" class="validate-form" novalidate>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label class="form-label" for="username">Username</label>
+                                <input class="form-control" type="text" name="username" id="username" required autofocus>
+                                <div class="valid-feedback">Looks good!</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="password">Password</label>
+                                <input class="form-control" type="password" name="password" id="password" required>
+                                <div class="valid-feedback">Looks good!</div>
+                            </div>
+                        </div>
+                        <button class="w-100 btn btn-primary">Login</button>
+                    </form>
+                    <p class="text-center"><br>Don't have an account? <a href="/signup">Signup</a></p>
+                </div>
+            </div>
+        </div>
+    </div>

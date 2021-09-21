@@ -1,0 +1,36 @@
+<% layout("layouts/boilerplate") %>
+
+    <div class="container">
+        <div class="">
+            <div class="row shadow m-3 rounded-3">
+                <div class="design col-sm-6 col-md-7 col-lg-8 col-xl-9 bg-primary p-3 text-white pb-5">
+                    <h1 class="display-6">Welcome to <span class="fw-bold">COVID Supply</span></h1>
+                    <p class="fs-5">All requirements in one place</p>
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 p-3 bg-light">
+                    <h5 class="display-6">Signup</h5>
+                    <form action="/signup" method="POST" class="validate-form" novalidate>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label class="form-label" for="username">Username</label>
+                                <input class="form-control" type="text" name="username" id="username" required autofocus>
+                                <div class="valid-feedback">Looks good!</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="email">Email</label>
+                                <input class="form-control" type="email" name="email" id="email" required>
+                                <div class="valid-feedback">Looks good!</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="password">Password</label>
+                                <input class="form-control" type="password" name="password" id="password" required>
+                                <div class="valid-feedback">Looks good!</div>
+                            </div>
+                        </div>
+                        <button class="w-100 btn btn-primary">Signup</button>
+                    </form>
+                    <p class="text-center"><br>Already have an account? <a href="/login">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
