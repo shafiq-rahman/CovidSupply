@@ -148,7 +148,7 @@ app.use(express.static(path.join(__dirname, "public")))
 
 
 //Setting up the server
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8080
 
 app.listen(port, () => {
     console.log(`LISTENING TO PORT ${port}`)

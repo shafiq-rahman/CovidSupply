@@ -3,7 +3,9 @@ const Supply = require("../models/supply")
 const { descriptors, category} = require("./seedHelpers")
 const cities = require("./cities")
 
-mongoose.connect("mongodb://localhost:27017/covid-aid", {
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/covid-aid"
+
+mongoose.connect(dbUrl , {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
@@ -13,6 +15,7 @@ mongoose.connect("mongodb://localhost:27017/covid-aid", {
     })
     .catch(err => {
         console.log("FAILED TO CONNECT MONGODB")
+        console.log(err)
     })
 
 const Sample = array => array[Math.floor(Math.random() * array.length)]

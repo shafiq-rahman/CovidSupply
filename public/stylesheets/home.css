@@ -12,6 +12,11 @@ body {
     max-width: 60vw;
 }
 
+@media (max-width: 600px) {
+    .cover-container {
+        max-width: 100vw;
+    }
+}
 .nav-link {
     padding: 0.25rem 0;
     font-weight: 600;
