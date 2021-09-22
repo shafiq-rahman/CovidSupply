@@ -54,8 +54,17 @@ const validateReview = (req, res, next) => {
     }
 }
 
+const redirectShow = (req, res, next) => {
+    const { id } = req.query
+    if (id) {
+        req.session.returnTo = `/supply/${id}`
+    }
+    next()
+}
+
 module.exports.isLoggedIn = isLoggedIn
 module.exports.validateSchema = validateSchema
 module.exports.isOwner = isOwner
 module.exports.isReviewAuthor = isReviewAuthor
 module.exports.validateReview = validateReview
+module.exports.redirectShow = redirectShow

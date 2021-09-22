@@ -45,10 +45,10 @@
     </div>
     <div class="col-md-6">
         <div id='map'></div>
-        <h1 class="mt-3">Reviews</h1>
         <% if(!currentUser) { %>
-            <h2 class="fs-4"><a href="/login">Login</a> to leave a review</h2>
+            <h2 class="fs-4"><a href="/login?id=<%= store._id %>">Login</a> to leave a review</h2>
         <% } else { %>
+            <h2 class="fs-4 mt-3">Leave a review</h2>
             <form action="/supply/<%= store._id %>/reviews" class="mb-3 validate-form" method="POST" novalidate>
                 <div>
                     <!-- <input class="form-range" type="range" name="review[rating]" id="rating" min="1" max="5"> -->
@@ -75,16 +75,19 @@
                 </div>
                 <button class="btn btn-info">Submit</button>
             </form>
-        <% } %> 
+        <% } %>
+        <h1 class="mt-2 display-6">Reviews</h1>
         <div class="reviews">
             <% for(let review of store.reviews) { %>
                 <div class="card mb-3">
                     <div class="card-body">
-                        <h5 class="card-title"><%= review.author.username %></h5>
-                        <p class="starability-result" data-rating="<%= review.rating %>">
-                            Rated: <%= review.rating %>  stars
-                        </p>
-                        <p class="card-text">Review: <%= review.body %></p>
+                        <div class="card-title">
+                            <h5 class="text-muted d-inline"><%= review.author.username %></h5>
+                            <p class="starability-result d-inline float-end" data-rating="<%= review.rating %>">
+                                Rated: <%= review.rating %> stars
+                            </p>
+                        </div>
+                        <p class="card-text"><%= review.body %></p>
                         <% if(currentUser && review.author.equals(currentUser._id)) { %> 
                             <form action="/supply/<%= store._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
                                 <button class="btn btn-danger btn-sm">Delete</button>
