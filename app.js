@@ -35,7 +35,6 @@ mongoose.connect(dbUrl, {
     })
     .catch(err => {
         console.log("FAILED TO CONNECT MONGODB")
-        console.log(err)
     })
 
 //Express connection
