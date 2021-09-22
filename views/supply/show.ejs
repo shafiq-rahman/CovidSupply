@@ -46,7 +46,7 @@
     <div class="col-md-6">
         <div id='map'></div>
         <% if(!currentUser) { %>
-            <h2 class="fs-4"><a href="/login?id=<%= store._id %>">Login</a> to leave a review</h2>
+            <h2 class="fs-4 mt-3"><a href="/login?id=<%= store._id %>">Login</a> to leave a review</h2>
         <% } else { %>
             <h2 class="fs-4 mt-3">Leave a review</h2>
             <form action="/supply/<%= store._id %>/reviews" class="mb-3 validate-form" method="POST" novalidate>
@@ -76,7 +76,9 @@
                 <button class="btn btn-info">Submit</button>
             </form>
         <% } %>
-        <h1 class="mt-2 display-6">Reviews</h1>
+        <% if(store.reviews.length > 0) { %>
+            <h1 class="mt-2 display-6">Reviews</h1>
+        <% } %> 
         <div class="reviews">
             <% for(let review of store.reviews) { %>
                 <div class="card mb-3">
