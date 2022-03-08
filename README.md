@@ -1,7 +1,7 @@
 # CovidSupply
 
-A platform to view all those **Supply stores** that are needful in the COVID period.
-Check the live website [here](https://dry-garden-18199.herokuapp.com/)  
+A platform to view all those **Supply stores** that are needful in the **COVID-19** period.<br/>
+Check the **live website** [here](https://dry-garden-18199.herokuapp.com/)
 
 ### Features
 * Users can view all the supply store with their location.
